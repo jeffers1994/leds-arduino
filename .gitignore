@@ -1,0 +1,68 @@
+/*   UNIVERSIDAD TECNICA DEL NORTE
+              FICA-CIERCOM
+        SISTEMAS MICROPROCESADOS
+Nombre: Jefferson Flores 
+Fecha: 20-10-2016
+
+Deber #1          JUEGO DE 14 LEDS 
+
+  El presente codigo tiene  juegos de 14 leds
+  Los leds estan ubicados verticalmente en dos barras de leds de color rojo en total 14 leds
+  Para los juegos se utilizaran ciclos
+  1.- El primer juego comienza en el pin 0 y el pin 13, enciende los extremos luego se dezplaza cada 3 leds
+  2.- Este segundo juego inicia en los extremos y avanza hasta el centro, luego regresa desde el centro hasta los extremos pero enciendde uno a uno
+  3.- Este tercer juego es semejante al primero pero deja encendido los leds que realizan la trayectoria
+*/
+
+int contador_1; // 
+int contador_2;// 
+void setup() {
+  pinMode (0, OUTPUT);  //declarar pin como salida
+  pinMode (1, OUTPUT);  //declarar pin como salida
+  pinMode (2, OUTPUT);  //declarar pin como salida
+  pinMode (3, OUTPUT);  //declarar pin como salida
+  pinMode (4, OUTPUT);  //declarar pin como salida
+  pinMode (5, OUTPUT);  //declarar pin como salida
+  pinMode (6, OUTPUT);  //declarar pin como salida
+  pinMode (7, OUTPUT);  //declarar pin como salida
+  pinMode (8, OUTPUT);  //declarar pin como salida
+  pinMode (9, OUTPUT);  //declarar pin como salida
+  pinMode (10, OUTPUT); //declarar pin como salida
+  pinMode (11, OUTPUT); //declarar pin como salida
+  pinMode (12, OUTPUT); //declarar pin como salida
+  pinMode (13, OUTPUT); //declarar pin como salida
+}
+void loop() {
+  // Juego de leds 1
+  for (contador_1 = 0, contador_2=13; contador_1 < 14; contador_1 = contador_1 + 3,contador_2 = contador_2 - 3) {
+      digitalWrite(contador_1, HIGH);
+      digitalWrite(contador_2, HIGH);
+      delay(200);
+      digitalWrite(contador_1, LOW);
+      digitalWrite(contador_2, LOW);
+      delay(200);
+         }
+  // Juego de leds 2
+  for (contador_1 = 0, contador_2=13; contador_1 < 14; contador_1 = contador_1 + 1,contador_2 = contador_2 - 1) {
+      digitalWrite(contador_1, HIGH);
+      digitalWrite(contador_2, HIGH);
+      delay(200);
+      digitalWrite(contador_1, LOW);
+      digitalWrite(contador_2, LOW);
+      delay(200);
+         }
+ // Juego de leds 3
+  for (contador_1 = 0, contador_2=13; contador_1 < 8; contador_1++,contador_2--) {
+      digitalWrite(contador_1, HIGH);
+      digitalWrite(contador_2, HIGH);
+      delay(200);
+    }
+
+   for (contador_1 = 7, contador_2=8; contador_1 < 8; contador_1--,contador_2++) {
+      digitalWrite(contador_1, LOW);
+      digitalWrite(contador_2, LOW);
+      delay(200);
+   }
+}
+
+ 
